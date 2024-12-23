@@ -1,4 +1,5 @@
-import Message from "../models/msg";
+import Message from "../models/msg.js";
+import cloudinary from '../lib/claudinary.js';
 
 export const sendmsg = async (req, res) => {
     try {

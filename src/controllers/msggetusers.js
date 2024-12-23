@@ -1,3 +1,4 @@
+import User from '../models/user.js';
 export const getusers = async (req, res) => {
     try {
         const userid = req.user._id;
