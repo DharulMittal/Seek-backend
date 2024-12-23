@@ -1,5 +1,5 @@
 import User from "../models/user.js";
-import { generateToken } from "../lib/util.js";
+import jwt from "jsonwebtoken";
 
 export const checkLogin = async (req, res, next) => {
     try {
