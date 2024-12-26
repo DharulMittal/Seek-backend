@@ -13,5 +13,6 @@ export const updatepfp = async (req, res) => {
         res.status(200).json({msg: 'PFP updated successfully', user: updateduser});
     } catch (error) {
         console.log(error);        
+        console.log("from backend");        
     }
 };
