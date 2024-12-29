@@ -9,16 +9,7 @@ import { updateusername } from '../controllers/authupdateuname.js';
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    // res.send("Hello World");
-    res.json({
-        "_id": "676859e074c030382d4ccad9",
-        "username": "Dharul",
-        "email": "Ishika@gmail.com",
-        "pfp": "",
-        "createdAt": "2024-12-22T18:26:40.174Z",
-        "updatedAt": "2024-12-22T18:26:40.174Z",
-        "__v": 0
-    });
+    res.send("Hello World");
 });
 
 router.post("/login",login);

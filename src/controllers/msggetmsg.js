@@ -2,7 +2,7 @@ import Message from "../models/msg.js";
 
 export const getmsg = async (req, res) => {
     try {
-        const {id : recieverid} = req.param;
+        const {id : recieverid} = req.params;
         const senderid = req.user._id;
 
         const msg = await Message.find({
