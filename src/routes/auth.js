@@ -2,7 +2,7 @@ import express from 'express';
 import { signup } from '../controllers/authsignup.js';
 import { login } from '../controllers/authlogin.js';
 import { logout } from '../controllers/authlogout.js';
-import { checkLogin } from '../middleware/checklogin.js';
+import { checkLogin } from '../middleware/checkLogin.js';
 import { updatepfp } from '../controllers/authupdatepfp.js';
 import { updateusername } from '../controllers/authupdateuname.js';
 

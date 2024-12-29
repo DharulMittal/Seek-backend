@@ -1,5 +1,5 @@
 import express from 'express';
-import { checkLogin } from '../middleware/checklogin.js';
+import { checkLogin } from '../middleware/checkLogin.js';
 import { getusers } from '../controllers/msggetusers.js';
 import { getmsg } from '../controllers/msggetmsg.js';
 import { sendmsg } from '../controllers/msgsendmsg.js';
