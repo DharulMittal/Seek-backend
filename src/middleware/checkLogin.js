@@ -5,11 +5,11 @@ export const checkLogin = async (req, res, next) => {
     try {
         const token = req.cookies.jwt;
         if(!token){
-            return res.status(401).json({msg: 'Unauthorized'});
+            return res.status(401).json({msg: 'token not found'});
         }
         const decode = jwt.verify(token, process.env.JWT_SECRET);
         if(!decode){
-            return res.status(401).json({msg: 'Unauthorized'});
+            return res.status(401).json({msg: 'wrong token'});
         }
 
         const user = await User.findOne({_id: decode.username}).select('-password');
