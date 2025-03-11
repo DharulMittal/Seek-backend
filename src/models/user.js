@@ -13,13 +13,20 @@ const userSchema = new mongoose.Schema(
         },
         password: {
             type: String,
-            required: true,
+            required: function() {
+                // Password is required only if googleId is not provided
+                return !this.googleId;
+            },
             minlegth: 6,
         },
         pfp: {
             type: String,
             // required: true,
             default: "",
+        },
+        googleId: {
+            type: String,
+            default: null
         }
     },
     {

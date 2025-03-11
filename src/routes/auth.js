@@ -5,6 +5,8 @@ import { logout } from '../controllers/authlogout.js';
 import { checkLogin } from '../middleware/checkLogin.js';
 import { updatepfp } from '../controllers/authupdatepfp.js';
 import { updateusername } from '../controllers/authupdateuname.js';
+import { googleAuthCallback, googleAuthFailure } from '../controllers/authGoogle.js';
+import passport from '../config/passport.js';
 
 const router = express.Router();
 
@@ -21,6 +23,24 @@ router.post("/logout", logout);
 router.put("/updatepfp",checkLogin,updatepfp);
 
 router.put("/updateuname",checkLogin,updateusername)
+
+// Google OAuth routes
+router.get('/google', 
+    passport.authenticate('google', { 
+        scope: ['profile', 'email'],
+        session: false
+    })
+);
+
+router.get('/google/callback', 
+    passport.authenticate('google', { 
+        failureRedirect: '/api/auth/google/failure',
+        session: false 
+    }),
+    googleAuthCallback
+);
+
+router.get('/google/failure', googleAuthFailure);
 
 router.get("/check",checkLogin, (req, res) => {
     try {
