@@ -7,6 +7,7 @@ import { updatepfp } from '../controllers/authupdatepfp.js';
 import { updateusername } from '../controllers/authupdateuname.js';
 import { googleAuthCallback, googleAuthFailure } from '../controllers/authGoogle.js';
 import passport from '../config/passport.js';
+import { getUSerinfo } from '../controllers/authUserinfo.js';
 
 const router = express.Router();
 
@@ -41,6 +42,8 @@ router.get('/google/callback',
 );
 
 router.get('/google/failure', googleAuthFailure);
+
+router.post('/userinfo',checkLogin, getUSerinfo);
 
 router.get("/check",checkLogin, (req, res) => {
     try {
